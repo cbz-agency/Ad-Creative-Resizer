@@ -7,13 +7,17 @@
     "node": ">=18.18.0 <23"
   },
   "scripts": {
-    "preinstall": "pnpm approve-builds sharp @tailwindcss/oxide || true",
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "vercel:build:setup": "pnpm approve-builds sharp @tailwindcss/oxide || true",
-    "vercel-build": "pnpm run vercel:build:setup && next build"
+    "vercel-build": "next build"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "@tailwindcss/oxide"
+    ]
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
